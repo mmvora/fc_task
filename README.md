@@ -73,7 +73,7 @@ poetry run python -m fc_task.extractor.main
 ### Extractor Design
 The extractor is designed to be scaleable. It uses celery to queue the task of extracting the data from the given URL, which means we can easily spawn multiple workers to scale the process / process in parallel.
 
-The extractor is also designed to be fault tolerant. I purposely used the OPENAI library to generate the AI summary because it is a paid service and I wanted to show how we can handle exceptions and retry the task if it fails.
+The extractor is also designed to be fault tolerant. I purposely used the OPENAI library to generate the AI summary because it is a paid service and I wanted to show how we can handle exceptions and retry the task if it fails. I have set it up so that depending on the credentials you add in the `.env` file, you can use Openai, Gemini or whichever service you want provided OPENAI supports it (in my case I used gemini).
 
 ## Q2: Relationship Visualizer
 For the relationshiip visualizer, due to the constraints of budget I used a local Llama model instead of OpenAI.
