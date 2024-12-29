@@ -120,7 +120,7 @@ Once again to save you the time, here is a screenshot of the clusters:
 ## Discussion
 I had a lot of fun working on this task. I had previously never worked with any form of Graph database so it was a great learning experience.
 
-I tried using the `newspaper` library to generate the summary (which using NLP) but I found that it was not as accurate as I would have liked. I then switched to using LLMa to generate the summary and I found it to be much better.
+I tried using the `newspaper` library to generate the summary (which using NLP) but I found that it was not as accurate as I would have liked. I then switched to using LLMs to generate the summary and I found it to be much better.
 
 ## Improvements
 While the relationship visualizer works, I would have liked to spend more time on it. I would have liked to use a more diverse dataset to test the relationship extraction. I would have also liked to use a more advanced model to generate the relationships so that maybe every node in the graph would have a connection to another node.
