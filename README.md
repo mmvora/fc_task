@@ -97,7 +97,7 @@ You can then run the following command in your neo4j browser to see the relation
 MATCH (n) MATCH ()-[r]->() RETURN n, r
 ```
 
-To save you the time, here is a screenshot of the relationships in the neo4j browser:
+To save you the time, here is a screenshot of the relationships in the neo4j browser (its an svg so feel free to zoom in):
 ![Neo4j Relationships](assets/graph.svg)
 
 
