@@ -94,3 +94,38 @@ MATCH (n) MATCH ()-[r]->() RETURN n, r
 
 To save you the time, here is a screenshot of the relationships in the neo4j browser:
 ![Neo4j Relationships](assets/graph.svg)
+
+
+## Q3: Clustering
+For the clustering, I used the `Kmeans` algorithm from the `sklearn` library. I used the `TfidfVectorizer` to vectorize the text data and then clustered the data into 3 clusters. While I chose 3, I have also inlcuded (commented out) code to run the elbow method to determine the optimal number of clusters.
+
+The reason I chose Kmeans for text clustering is because it is a simple and easy to understand algorithm that works well with text data. It is also very fast and efficient.
+
+### Running the Clustering
+To run the clustering, you can run the following command in your terminal (at the root of the project).
+
+```bash
+poetry run python -m fc_task.clustering.k_means
+```
+
+Once again to save you the time, here is a screenshot of the clusters:
+![Clusters](assets/k_means.png)
+
+
+## Discussion
+I had a lot of fun working on this task. I had previously never worked with any form of Graph database so it was a great learning experience.
+
+I tried using the `newspaper` library to generate the summary (which using NLP) but I found that it was not as accurate as I would have liked. I then switched to using LLMa to generate the summary and I found it to be much better.
+
+## Improvements
+While the relationship visualizer works, I would have liked to spend more time on it. I would have liked to use a more diverse dataset to test the relationship extraction. I would have also liked to use a more advanced model to generate the relationships so that maybe every node in the graph would have a connection to another node.
+
+I also found that the clustering was not as accurate as I would have liked. I think this is because the data is not very diverse. I would have liked to use a more diverse dataset to test the clustering. I also don't have too much experience with clustering so I would have liked to spend more time on this. I have previously worked with vector embeddings so maybe if I were to do this again, I would try using that.
+
+
+## Future directions and open-ended exploration
+I think this system could be great to parse through large amounts of financial data (especially long textual documents / webpages) to determine causal relationships between different entities. I think it could be used to generate insights that would be hard to generate manually. 
+To do this I would:
+- Use a more advanced model to generate the relationships
+- Use a more diverse dataset to test the relationship extraction rather than just articles (like financial reports, stock tickers and their price history etc.)
+  - Even adding real life events relating to the entities in the articles could be interesting to see how the relationships change over time.
