@@ -1,5 +1,6 @@
 from newspaper import Article
 
+
 def get_text_nlp(url: str) -> dict:
     article = Article(url)
     article.download()
@@ -8,10 +9,7 @@ def get_text_nlp(url: str) -> dict:
     article.nlp()
     article_summary = article.summary
 
-    return {
-        "text": article_text,
-        "summary": article_summary
-    }
+    return {"text": article_text, "summary": article_summary}
 
 
 if __name__ == "__main__":

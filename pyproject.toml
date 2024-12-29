@@ -17,6 +17,15 @@ celery = {extras = ["redis"], version = "^5.4.0"}
 backoff = "^2.2.1"
 ruff = "^0.8.4"
 transformers = "^4.47.1"
+langchain-community = "^0.3.13"
+langchain-experimental = "^0.3.4"
+langchain = "^0.3.13"
+json-repair = "^0.34.0"
+langchain-ollama = "^0.2.2"
+neo4j = "^5.27.0"
+matplotlib = "^3.10.0"
+scikit-learn = "^1.6.0"
+pandas = "^2.2.3"
 
 
 [build-system]

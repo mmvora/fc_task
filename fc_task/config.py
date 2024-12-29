@@ -39,3 +39,28 @@ def get_openai_model() -> str:
     if environment_model is None:
         raise Exception("OPENAI_MODEL environment variable is not set")
     return environment_model
+
+def get_neo4j_url() -> str:
+    neo4j_url = os.getenv("NEO4J_URL", dotenv_config.get("NEO4J_URL"))
+    if neo4j_url is None:
+        raise Exception("NEO4J_URL environment variable not set")
+    return neo4j_url
+
+def get_neo4j_user() -> str:
+    neo4j_user = os.getenv("NEO4J_USER", dotenv_config.get("NEO4J_USER"))
+    if neo4j_user is None:
+        raise Exception("NEO4J_USER environment variable not set")
+    return neo4j_user
+
+def get_neo4j_password() -> str:
+    neo4j_password = os.getenv("NEO4J_PASSWORD", dotenv_config.get("NEO4J_PASSWORD"))
+    if neo4j_password is None:
+        raise Exception("NEO4J_PASSWORD environment variable not set")
+    return neo4j_password
+
+def get_neo4j_creds() -> dict:
+    return {
+        "url": get_neo4j_url(),
+        "user": get_neo4j_user(),
+        "password": get_neo4j_password(),
+    }

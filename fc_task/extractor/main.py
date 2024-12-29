@@ -1,5 +1,5 @@
 import os
-import csv 
+import csv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
@@ -10,8 +10,8 @@ from fc_task.runner.tasks import extract_url
 
 DATA_SOURCE_DIR = os.getenv("DATA_SOURCE_DIR", "data_source")
 
-def main() -> None:
 
+def main() -> None:
     engine = create_engine(load_db_url())
     Base.metadata.create_all(engine)
 
@@ -31,6 +31,7 @@ def main() -> None:
                         else:
                             print(f"Extracting {url}")
                             extract_url.delay(url)
+
 
 if __name__ == "__main__":
     main()
