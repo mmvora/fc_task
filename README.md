@@ -137,4 +137,5 @@ To do this I would:
 
 
 Code formatted using [ruff](https://docs.astral.sh/ruff/)
+
 Typing standards added / checked using [mypy](https://mypy.readthedocs.io/en/stable/)
