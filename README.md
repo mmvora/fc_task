@@ -3,6 +3,11 @@
 The task was to implement 3 parts, an extractor, a relationship vizualizer and a clustering module. 
 
 ## Dependencies
+
+### Python Environment
+I recommend using a virtual environment to install the requirements. (see [here](https://docs.python.org/3/library/venv.html) for more information on how to set up a virtual environment).
+You will need python 3.12 or higher to run this project.
+
 ### Install redis
 You'll need `redis` setup to run a celery queue (which we use for the extractor to optimize the process).
 Checkout [redis installation guide](https://redis.io/docs/install/install-redis/)
@@ -129,3 +134,7 @@ To do this I would:
 - Use a more advanced model to generate the relationships
 - Use a more diverse dataset to test the relationship extraction rather than just articles (like financial reports, stock tickers and their price history etc.)
   - Even adding real life events relating to the entities in the articles could be interesting to see how the relationships change over time.
+
+
+Code formatted using [ruff](https://docs.astral.sh/ruff/)
+Typing standards added / checked using [mypy](https://mypy.readthedocs.io/en/stable/)

@@ -9,6 +9,7 @@ load_openai_creds()
 openai_client = openai.OpenAI()
 
 
+# This function is a wrapper around the OpenAI API client that retries on RateLimitError
 @backoff.on_exception(backoff.expo, openai.RateLimitError, max_tries=5, factor=3)
 def completions_with_backoff(**kwargs: Any) -> ChatCompletion:
     return openai_client.chat.completions.create(**kwargs)

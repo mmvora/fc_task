@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from fc_task.config import load_db_url, get_neo4j_creds
 from fc_task.article_model import Article
 
+# As I mentioned in the README, we use the llama model here as it was too expensive to use the OpenAI model
 llm = OllamaLLM(model="llama3.2")
 
 llm_transformer = LLMGraphTransformer(
@@ -20,6 +21,7 @@ url = neo4j_creds["url"]
 user = neo4j_creds["user"]
 password = neo4j_creds["password"]
 
+
 def extract_relations() -> None:
     documents: list[Document] = []
     engine = create_engine(load_db_url())
@@ -28,11 +30,12 @@ def extract_relations() -> None:
         for article in session.query(Article).all():
             documents.append(Document(page_content=article.ai_summary))
 
+    # Here we convert the documents to graph documents which is the format that the Neo4jGraph class expects
     graph_documents = llm_transformer.convert_to_graph_documents(documents)
     print(f"Nodes:{graph_documents[0].nodes}")
     print(f"Relationships:{graph_documents[0].relationships}")
 
-    
+    # The magic that send the nodes and relationships to the Neo4j database
     graph = Neo4jGraph(url=url, username=user, password=password, enhanced_schema=True)
     graph.add_graph_documents(graph_documents)
 

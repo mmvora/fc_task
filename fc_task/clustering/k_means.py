@@ -51,6 +51,7 @@ def create_clusters() -> None:
 
     df["x"] = X_reduced[:, 0]
     df["y"] = X_reduced[:, 1]
+
     # Reduce dimensions for visualization
     pca = PCA(n_components=2)
     X_reduced = pca.fit_transform(X.toarray())

@@ -21,10 +21,13 @@ def main() -> None:
             # read the file
             with open(os.path.join(DATA_SOURCE_DIR, file), "r") as f:
                 reader = csv.reader(f, delimiter=",")
+
+                # skip the header in the CSV file
                 next(reader)
                 for row in reader:
                     url = row[1]
                     with Session(engine) as session:
+                        # check if the URL is already in the database, if not, we extract the article
                         if session.query(Article).filter(Article.url == url).first():
                             print(f"Skipping {url}")
                             continue
