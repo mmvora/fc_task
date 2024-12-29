@@ -54,15 +54,15 @@ The major ask for the extractor was for it to be scaleable. I decided to use cel
 ### Running the Extractor
 To run the extractor, you can run the following commands in your terminal (at the root of the project).
 
+Start the redis server:
 ```bash
 redis-server
 ``` 
-to start the redis server.
 
+Start the celery worker:
 ```bash
 poetry run celery -A fc_task.runner worker -l INFO
 ```
-to start the celery worker.
 
 After doing the above two steps, ensure that the `data_source` directory contains the CSV(s) that you want to extract data from. Then run the following command to start the extractor.
 
